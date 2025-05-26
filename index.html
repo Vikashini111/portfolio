@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikashini A - Portfolio | UI/UX Designer & Developer</title>
+    <meta name="description" content="Professional portfolio of Vikashini A - Computer Science Engineering student specializing in UI/UX Design and Full Stack Development">
+    <meta name="author" content="Vikashini A">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1f2937;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #374151;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        .hero-content .description {
+            font-size: 1.1rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #374151;
+            border: 2px solid #d1d5db;
+        }
+        
+        .btn-outline:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+        }
+        
+        .contact-info {
+            font-size: 0.9rem;
+            color: #6b7280;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+        
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background: #2563eb;
+            margin: 0 auto;
+        }
+        
+        /* Card Styles */
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            padding: 2rem 2rem 1rem;
+        }
+        
+        .card-content {
+            padding: 0 2rem 2rem;
+        }
+        
+        /* About Section */
+        .about-card {
+            padding: 3rem;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .about-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .about-list {
+            list-style: none;
+        }
+        
+        .about-list li {
+            margin: 0.75rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .about-list li::before {
+            content: "•";
+            color: #2563eb;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Education Section */
+        .education-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .education-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 2rem;
+        }
+        
+        .education-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .education-icon {
+            background: #dbeafe;
+            padding: 12px;
+            border-radius: 8px;
+            color: #2563eb;
+        }
+        
+        .education-details h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-details p {
+            color: #6b7280;
+            margin: 0.25rem 0;
+        }
+        
+        .education-meta {
+            text-align: right;
+        }
+        
+        .education-period {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-gpa {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+        
+        .education-status {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            padding: 2rem;
+        }
+        
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-icon {
+            background: #f3f4f6;
+            padding: 12px;
+            border-radius: 8px;
+        }
+        
+        .skill-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+        
+        .badge:hover {
+            transform: scale(1.05);
+        }
+        
+        .badge-blue { background: #dbeafe; color: #1e40af; }
+        .badge-purple { background: #ede9fe; color: #7c3aed; }
+        .badge-green { background: #dcfce7; color: #166534; }
+        .badge-orange { background: #fed7aa; color: #c2410c; }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .project-card {
+            padding: 2rem;
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .project-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+        
+        .project-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 0.8rem;
+        }
+        
+        .project-description {
+            color: #6b7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .tech-stack h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .badge-outline {
+            background: #f9fafb;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+        
+        .badge-outline:hover {
+            background: #f3f4f6;
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info-section h3 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info-section p {
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-card {
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            color: #2563eb;
+        }
+        
+        .contact-icon {
+            background: #dbeafe;
+            padding: 12px;
+            border-radius: 8px;
+            color: #2563eb;
+        }
+        
+        .contact-form {
+            padding: 2rem;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            padding: 12px;
+            background: transparent;
+            border: 2px solid #4b5563;
+            color: #9ca3af;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: white;
+            background: #4b5563;
+        }
+        
+        .quote {
+            max-width: 500px;
+            font-style: italic;
+            color: #d1d5db;
+        }
+        
+        .quote-author {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-top: 0.5rem;
+        }
+        
+        .copyright {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .education-card {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .education-meta {
+                text-align: left;
+            }
+            
+            .project-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .card-header,
+            .card-content {
+                padding: 1.5rem;
+            }
+            
+            .about-card,
+            .skill-category,
+            .project-card,
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Portfolio</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>VIKASHINI A</h1>
+                <p class="subtitle">UI/UX DESIGNER & DEVELOPER</p>
+                <p class="description">
+                    Passionate Computer Science Engineering student with expertise in programming, 
+                    software development, and problem-solving. Enthusiastic about creating innovative 
+                    user experiences and developing cutting-edge solutions.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="#" class="btn btn-primary">
+                        📄 Download Resume
+                    </a>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <a href="#" class="btn btn-outline">📧</a>
+                        <a href="#" class="btn btn-outline">💼</a>
+                        <a href="#" class="btn btn-outline">🐙</a>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <p>📞 8015226775</p>
+                    <p>✉️ vikashini032004@gmail.com</p>
+                    <p>📍 Sangutharnagar, periya semur, Erode</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="card about-card">
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.7;">
+                    Passionate and driven Computer Science Engineering student with a strong foundation in programming, 
+                    software development, and problem-solving. I am enthusiastic about learning new technologies, optimizing 
+                    user experiences, and developing innovative solutions. Seeking opportunities to apply my technical skills 
+                    and creativity in real-world projects while continuously growing as a developer.
+                </p>
+
+                <div class="about-grid">
+                    <div class="about-section">
+                        <h3>Certificates</h3>
+                        <ul class="about-list">
+                            <li>Infosys Spring board course - Cybersecurity, Kanban, Artificial Intelligence</li>
+                            <li>Workshop in cloud computing and AR/VR</li>
+                            <li>Smart India Hackathon 23 participation</li>
+                            <li>Ideathon participation</li>
+                        </ul>
+                    </div>
+
+                    <div class="about-section">
+                        <h3>Experience</h3>
+                        <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Internship in NXTLOGIC Software Solution</h4>
+                        <ul class="about-list">
+                            <li>Learned web development fundamentals, including HTML, CSS, JavaScript, and Bootstrap</li>
+                            <li>Gained experience in form validation, form handling, and responsive design</li>
+                            <li>Demonstrated high level of dedication and professionalism with 100% attendance</li>
+                            <li>Received positive feedback for excellent conduct and character throughout the internship</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e5e7eb;">
+                    <h3 style="margin-bottom: 1.5rem;">Languages & Interests</h3>
+                    <div class="about-grid">
+                        <div>
+                            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Languages</h4>
+                            <ul class="about-list">
+                                <li>English</li>
+                                <li>Tamil</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="font-weight: 600; margin-bottom: 0.5rem;">Interests</h4>
+                            <ul class="about-list">
+                                <li>Full Stack Development</li>
+                                <li>UI/UX Design</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" style="background: rgba(255, 255, 255, 0.5);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Education</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="education-grid">
+                <div class="card education-card">
+                    <div class="education-info">
+                        <div class="education-icon">🎓</div>
+                        <div class="education-details">
+                            <h3>B.E - Computer Science And Engineering</h3>
+                            <p style="font-weight: 600;">NANDHA ENGINEERING COLLEGE (AUTONOMOUS)</p>
+                            <p>ERODE, TAMILNADU</p>
+                        </div>
+                    </div>
+                    <div class="education-meta">
+                        <div class="education-period">📅 2021-2025</div>
+                        <div class="education-gpa">8.458</div>
+                        <div class="education-status">Cumulative GPA</div>
+                    </div>
+                </div>
+
+                <div class="card education-card">
+                    <div class="education-info">
+                        <div class="education-icon">🎓</div>
+                        <div class="education-details">
+                            <h3>SVN MATRIC HIGHER SECONDARY SCHOOL</h3>
+                            <p style="font-weight: 600;">HSC</p>
+                            <p>ERODE, TAMILNADU</p>
+                        </div>
+                    </div>
+                    <div class="education-meta">
+                        <div class="education-period">📅 2020-2021</div>
+                        <div class="education-gpa">84.3%</div>
+                        <div class="education-status">Percentage</div>
+                    </div>
+                </div>
+
+                <div class="card education-card">
+                    <div class="education-info">
+                        <div class="education-icon">🎓</div>
+                        <div class="education-details">
+                            <h3>SSLC</h3>
+                            <p style="font-weight: 600;">SVN MATRIC HIGHER SECONDARY SCHOOL</p>
+                            <p>ERODE, TAMILNADU</p>
+                        </div>
+                    </div>
+                    <div class="education-meta">
+                        <div class="education-period">📅 2018-2019</div>
+                        <div class="education-gpa">91.4%</div>
+                        <div class="education-status">Percentage</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>Skills & Expertise</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="skills-grid">
+                <div class="card skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">💻</div>
+                        <h3>Programming Languages</h3>
+                    </div>
+                    <div class="skill-badges">
+                        <span class="badge badge-blue">Java</span>
+                        <span class="badge badge-blue">Python</span>
+                        <span class="badge badge-blue">JavaScript</span>
+                        <span class="badge badge-blue">HTML/CSS</span>
+                        <span class="badge badge-blue">C++</span>
+                    </div>
+                </div>
+
+                <div class="card skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">🎨</div>
+                        <h3>Design & UI/UX</h3>
+                    </div>
+                    <div class="skill-badges">
+                        <span class="badge badge-purple">UI/UX Design</span>
+                        <span class="badge badge-purple">Figma</span>
+                        <span class="badge badge-purple">Adobe Creative Suite</span>
+                        <span class="badge badge-purple">Responsive Design</span>
+                        <span class="badge badge-purple">Wireframing</span>
+                    </div>
+                </div>
+
+                <div class="card skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">👥</div>
+                        <h3>Soft Skills</h3>
+                    </div>
+                    <div class="skill-badges">
+                        <span class="badge badge-green">Leadership</span>
+                        <span class="badge badge-green">Communication</span>
+                        <span class="badge badge-green">Team Collaboration</span>
+                        <span class="badge badge-green">Problem Solving</span>
+                        <span class="badge badge-green">Time Management</span>
+                    </div>
+                </div>
+
+                <div class="card skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">📊</div>
+                        <h3>Technical Skills</h3>
+                    </div>
+                    <div class="skill-badges">
+                        <span class="badge badge-orange">Paper Presentation</span>
+                        <span class="badge badge-orange">Project Management</span>
+                        <span class="badge badge-orange">Version Control (Git)</span>
+                        <span class="badge badge-orange">Agile Development</span>
+                        <span class="badge badge-orange">Testing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" style="background: rgba(255, 255, 255, 0.5);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Projects</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="projects-grid">
+                <div class="card project-card">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">Face Emotion Detection & Gesture-Based Music Control</div>
+                            <div class="project-meta">
+                                <span>📅 2025-NOW</span>
+                                <span class="badge badge-purple">AI/ML Project</span>
+                            </div>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="btn btn-outline btn-sm">💻 Code</a>
+                            <a href="#" class="btn btn-outline btn-sm">🔗 Demo</a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Developed an AI-powered music control system that detects facial emotions for mood-based song recommendations and uses hand gestures for playback control. Implemented real-time recognition using computer vision and machine learning techniques.
+                    </p>
+                    <div class="tech-stack">
+                        <h4>Tech Stack:</h4>
+                        <div class="tech-badges">
+                            <span class="badge badge-outline">Python</span>
+                            <span class="badge badge-outline">OpenCV</span>
+                            <span class="badge badge-outline">MediaPipe</span>
+                            <span class="badge badge-outline">TensorFlow</span>
+                            <span class="badge badge-outline">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card project-card">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">Code Driver — Real-Time Collaborative Code Execution Platform</div>
+                            <div class="project-meta">
+                                <span>📅 2024</span>
+                                <span class="badge badge-blue">Full Stack Development</span>
+                            </div>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="btn btn-outline btn-sm">💻 Code</a>
+                            <a href="#" class="btn btn-outline btn-sm">🔗 Demo</a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Developed a MERN stack-based collaborative coding platform with real-time code execution, messaging, and online/offline status tracking. Integrated real-time change tracking to enhance workflow efficiency and team collaboration.
+                    </p>
+                    <div class="tech-stack">
+                        <h4>Tech Stack:</h4>
+                        <div class="tech-badges">
+                            <span class="badge badge-outline">MongoDB</span>
+                            <span class="badge badge-outline">Express.js</span>
+                            <span class="badge badge-outline">React.js</span>
+                            <span class="badge badge-outline">Node.js</span>
+                            <span class="badge badge-outline">WebSockets</span>
+                            <span class="badge badge-outline">Redux</span>
+                            <span class="badge badge-outline">REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card project-card">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">Blockchain Voting System</div>
+                            <div class="project-meta">
+                                <span>📅 2024</span>
+                                <span class="badge badge-green">Blockchain Development</span>
+                            </div>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="#" class="btn btn-outline btn-sm">💻 Code</a>
+                            <a href="#" class="btn btn-outline btn-sm">🔗 Demo</a>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        Developed a blockchain-based voting system using Ethereum smart contracts for secure and tamper-proof elections. Implemented a user-friendly interface with real-time vote counting and role-based authentication.
+                    </p>
+                    <div class="tech-stack">
+                        <h4>Tech Stack:</h4>
+                        <div class="tech-badges">
+                            <span class="badge badge-outline">HTML</span>
+                            <span class="badge badge-outline">CSS</span>
+                            <span class="badge badge-outline">JavaScript</span>
+                            <span class="badge badge-outline">Solidity</span>
+                            <span class="badge badge-outline">Ethereum</span>
+                            <span class="badge badge-outline">Smart Contracts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <div class="section-divider"></div>
+                <p style="margin-top: 1rem; font-size: 1.1rem; color: #6b7280; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Have a project in mind or want to collaborate? I'd love to hear from you. 
+                    Let's create something amazing together.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info-section">
+                    <h3>Let's Connect</h3>
+                    <p>
+                        I'm always interested in new opportunities and exciting projects. 
+                        Whether you have a question or just want to say hi, feel free to reach out!
+                    </p>
+
+                    <div class="contact-cards">
+                        <a href="mailto:vikashini032004@gmail.com" class="card contact-card">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <div style="font-weight: 600;">Email</div>
+                                <div style="font-size: 0.9rem; color: #6b7280;">vikashini032004@gmail.com</div>
+                            </div>
+                        </a>
+
+                        <a href="tel:8015226775" class="card contact-card">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <div style="font-weight: 600;">Phone</div>
+                                <div style="font-size: 0.9rem; color: #6b7280;">8015226775</div>
+                            </div>
+                        </a>
+
+                        <div class="card contact-card">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <div style="font-weight: 600;">Location</div>
+                                <div style="font-size: 0.9rem; color: #6b7280;">Sangutharnagar, periya semur, Erode</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card contact-form">
+                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1.5rem;">Send Message</h3>
+                    <form id="contactForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project or just say hello!" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            📨 Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#" class="social-link">🐙</a>
+                    <a href="#" class="social-link">💼</a>
+                    <a href="#" class="social-link">✉️</a>
+                </div>
+
+                <div class="quote">
+                    <p>"The best way to predict the future is to create it."</p>
+                    <p class="quote-author">- Peter Drucker</p>
+                </div>
+
+                <div class="copyright">
+                    <span>© 2025 Vikashini A. Made with ❤️ and lots of coffee</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I\'ll get back to you soon.');
+            this.reset();
+        });
+
+        // Mobile menu toggle (basic implementation)
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
